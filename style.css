@@ -194,7 +194,7 @@ footer{text-align:center;color:var(--ink-3);font-size:11px;letter-spacing:.2em;p
   .nav{width:100%;justify-content:space-between;margin:0 -12px}
   .nav a{padding:6px 10px}
   .hero{min-height:78vh}
-  .hero img{object-position:62% 20%}
+  .hero img{height:auto;bottom:auto;aspect-ratio:1/1;object-fit:cover;object-position:50% 30%}
   .hero::after{background:linear-gradient(0deg,var(--bg) 8%,rgba(11,11,13,.35) 55%,rgba(11,11,13,.1) 100%)}
   .hero .inner{padding:0 16px 40px}
   .section,.page-head{padding-left:16px;padding-right:16px}
