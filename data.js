@@ -105,13 +105,6 @@ const SHOWS = [
     note: "一つのテーマ、同じ条件、三つのビジョン。3作品一挙上演。",
   },
   {
-    start: "2026-05-04", end: "2026-05-04",
-    dateLabel: "2026.5.4（月）",
-    title: "中之島春の文化祭",
-    venue: "ABCホール",
-    note: "Cブロック いいむろなおきマイムカンパニーで出演",
-  },
-  {
     start: "2025-12-30", end: "2025-12-30",
     dateLabel: "2025.12.30（火）",
     title: "THE SHOW",
@@ -136,14 +129,6 @@ const SHOWS = [
     subtitle: "第5回 NEXT DESIGN 演劇",
     venue: "ザ・カレッジ・オペラハウス（大阪音楽大学）",
     links: [{ label: "公演詳細", url: "https://www.daion.ac.jp/concert-news/180314/" }],
-  },
-  {
-    start: "2025-12-19", end: "2025-12-21",
-    dateLabel: "2025.12.19（金）〜21（日）",
-    title: "走れ！走れ！！走れ！！！",
-    subtitle: "いいむろなおきマイムカンパニー 演劇",
-    venue: "としま区民センター（8F 多目的ホール）",
-    links: [{ label: "公演詳細", url: "https://www.toshima-mirai.or.jp/tabid216.html?pdid1=3388" }],
   },
 ];
 
