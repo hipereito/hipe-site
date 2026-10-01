@@ -28,11 +28,10 @@ const SHOWS = [
       "一般 前売4,000円（整理番号付）／当日4,500円",
       "U18 2,000円（前売・当日共通／要年齢証明）",
       "全自由席・整理番号順入場／未就学児入場不可",
-      "※事前精算（フォーム予約）の方には、整理番号とヒペのチェキ写真のオマケ付き",
     ],
     reserve: [
       { label: "ご予約（当日精算）", url: "https://shibai-engine.net/prism/webform.php?o=u0i8tvfq" },
-      { label: "ご予約（事前精算・整理番号とオマケ付き）", url: "https://forms.gle/aYyfB5ackzDuvp5E8" },
+      { label: "ご予約（事前精算・整理番号付き）", url: "https://forms.gle/aYyfB5ackzDuvp5E8" },
     ],
     image: "assets/notebook-front.jpg", imageWide: true,
     links: [
