@@ -10,12 +10,6 @@
 const SHOWS = [
   // ---------- 出演予定 ----------
   {
-    start: "2026-10-24", end: "2026-10-24",
-    dateLabel: "2026.10.24（土）",
-    area: "大阪",
-    tba: true,
-  },
-  {
     start: "2026-11-13", end: "2026-11-15",
     dateLabel: "2026.11.13（金）〜15（日）",
     title: "notebook",
@@ -74,6 +68,7 @@ const SHOWS = [
     ],
     links: [
       { label: "会場アクセス（Googleマップ）", url: "https://www.google.com/maps/search/?api=1&query=%E3%81%93%E3%82%93%E3%81%A9%E3%81%86%E7%8F%88%E7%90%B2%20%E6%84%9B%E7%9F%A5%E7%9C%8C%E6%84%9B%E7%9F%A5%E9%83%A1%E6%9D%B1%E9%83%B7%E7%94%BA%E8%AB%B8%E8%BC%AA%E4%B8%AD%E6%9C%A8%E6%88%B8%E8%A5%BF87-1" },
+      { label: "チラシ裏面（出演者紹介）", url: "assets/luna-back.jpg" },
       { label: "公式Instagram", url: "https://www.instagram.com/nad__luna" },
     ],
   },
