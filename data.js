@@ -38,8 +38,11 @@ const SHOWS = [
     reserve: [
       { label: "ご予約（当日精算）", url: "https://shibai-engine.net/prism/webform.php?o=u0i8tvfq" },
     ],
+    image: "assets/notebook-front.jpg",
     links: [
       { label: "公演詳細", url: "https://mime1166.com/stage/2026-11-13-15-notebook-omc/" },
+      { label: "会場アクセス（Googleマップ）", url: "https://www.google.com/maps/search/?api=1&query=%E6%89%87%E7%94%BA%E3%83%9F%E3%83%A5%E3%83%BC%E3%82%B8%E3%82%A2%E3%83%A0%E3%82%AD%E3%83%A5%E3%83%BC%E3%83%96%20%E5%A4%A7%E9%98%AA%E5%B8%82%E5%8C%97%E5%8C%BA%E5%8D%97%E6%89%87%E7%94%BA6-26" },
+      { label: "チラシ裏面（詳細）", url: "assets/notebook-back.jpg" },
     ],
   },
   {
