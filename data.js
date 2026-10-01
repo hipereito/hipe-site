@@ -70,6 +70,7 @@ const SHOWS = [
       { label: "第二夜 12/6 を予約", url: "https://forms.gle/vunEJWA7fmFtAqMM7" },
     ],
     links: [
+      { label: "会場アクセス（Googleマップ）", url: "https://www.google.com/maps/search/?api=1&query=%E3%81%93%E3%82%93%E3%81%A9%E3%81%86%E7%8F%88%E7%90%B2%20%E6%84%9B%E7%9F%A5%E7%9C%8C%E6%84%9B%E7%9F%A5%E9%83%A1%E6%9D%B1%E9%83%B7%E7%94%BA%E8%AB%B8%E8%BC%AA%E4%B8%AD%E6%9C%A8%E6%88%B8%E8%A5%BF87-1" },
       { label: "公式Instagram", url: "https://www.instagram.com/nad__luna" },
     ],
   },
