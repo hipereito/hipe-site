@@ -71,7 +71,7 @@
         ${s.credits ? `<div class="credits">${s.credits.map((c) => `<p>${esc(c)}</p>`).join("")}</div>` : ""}
         ${btns ? `<div class="actions">${btns}</div>` : ""}
       </div>
-      ${s.image ? `<a class="visual" href="${esc(s.image)}" target="_blank"><img src="${esc(s.image)}" alt="${esc(s.title)} チラシ" loading="lazy"></a>` : ""}
+      ${s.image ? `<a class="visual" href="${esc(s.image)}" target="_blank"><img src="${esc(s.image)}" alt="${esc(s.title)} チラシ" loading="lazy"${s.imagePos ? ` style="object-position:${esc(s.imagePos)}"` : ""}></a>` : ""}
     </article>`;
   }
 
