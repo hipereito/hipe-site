@@ -115,7 +115,10 @@ dl.info .muted{color:var(--ink-2);font-size:13px}
 .btn.primary{background:var(--red);border-color:var(--red);color:#fff}
 .btn.primary:hover{filter:brightness(1.1)}
 .show .visual{border-left:1px solid var(--line);background:#000}
-.show .visual img{width:100%;height:100%;object-fit:cover;object-position:top}
+.show .visual img{display:block;width:100%;height:auto}
+.show.has-image.wide{grid-template-columns:1fr}
+.show.has-image.wide .body{order:0}
+.show.has-image.wide .visual{border-left:0;border-top:1px solid var(--line)}
 
 .show.tba{background:transparent;border-style:dashed}
 .show.tba .body{padding:18px 24px;display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 18px}
@@ -196,7 +199,7 @@ footer{text-align:center;color:var(--ink-3);font-size:11px;letter-spacing:.2em;p
   .hero .inner{padding:0 16px 40px}
   .section,.page-head{padding-left:16px;padding-right:16px}
   .show.has-image{grid-template-columns:1fr}
-  .show .visual{border-left:0;border-top:1px solid var(--line);order:-1;max-height:300px}
+  .show .visual{border-left:0;border-top:1px solid var(--line);order:-1}
   .show .body{padding:22px 18px 24px}
   dl.info{grid-template-columns:1fr;gap:0}
   dl.info dt{padding-top:10px}

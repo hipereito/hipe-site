@@ -60,7 +60,7 @@
       ...(s.reserve || []).map((l) => `<a class="btn primary" href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.label)}</a>`),
       ...(s.links || []).map((l) => `<a class="btn" href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.label)} ↗</a>`),
     ].join("");
-    return `<article class="show${s.image ? " has-image" : ""}">
+    return `<article class="show${s.image ? " has-image" : ""}${s.imageWide ? " wide" : ""}">
       <div class="body">
         <p class="date">${esc(s.dateLabel)}${badge}</p>
         <h3>${esc(s.title)}</h3>
@@ -71,7 +71,7 @@
         ${s.credits ? `<div class="credits">${s.credits.map((c) => `<p>${esc(c)}</p>`).join("")}</div>` : ""}
         ${btns ? `<div class="actions">${btns}</div>` : ""}
       </div>
-      ${s.image ? `<a class="visual" href="${esc(s.image)}" target="_blank"><img src="${esc(s.image)}" alt="${esc(s.title)} チラシ" loading="lazy"${s.imagePos ? ` style="object-position:${esc(s.imagePos)}"` : ""}></a>` : ""}
+      ${s.image ? `<a class="visual" href="${esc(s.image)}" target="_blank"><img src="${esc(s.image)}" alt="${esc(s.title)} チラシ" loading="lazy"></a>` : ""}
     </article>`;
   }
 
