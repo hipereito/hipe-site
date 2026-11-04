@@ -32,6 +32,11 @@ const SHOWS = [
     reserve: [
       { label: "ご予約（当日精算）", url: "https://shibai-engine.net/prism/webform.php?o=u0i8tvfq" },
     ],
+    credits: [
+      "出演：いいむろなおき／田中啓介／三浦求／谷啓吾／羽田兎桃／川島由衣／さゆ～る／ヒペ／近澤ゆうき／小松阿弥",
+      "作・演出・振付：いいむろなおき",
+      "主催：いいむろなおきマイムカンパニー　提携：扇町ミュージアムキューブ",
+    ],
     image: "assets/notebook-front.jpg", imageWide: true,
     links: [
       { label: "公演詳細", url: "https://mime1166.com/stage/2026-11-13-15-notebook-omc/" },
@@ -96,6 +101,15 @@ const SHOWS = [
       "撮影可能VIP席（最前列12席）10,000円 ― 2026年12月1日（火）22:00発売",
       "一般指定席 6,500円／小学生以下 3,500円 ― 2026年12月2日（水）22:00発売",
       "全席指定／1ドリンク付き／当日券は＋500円",
+    ],
+    credits: [
+      "MAIN MC：緑川晴菜",
+      "SINGER：藤原麻友美／木村咲優実／半田絢子／Yunka",
+      "GUEST PERFORMER：ヒペ／石水タヰキ",
+      "TEAM 森の家：maco／真鈴／shuri／聖羅／ANNE",
+      "ENSEMBLE：熊澤心／熊本有那／小西陽奈／塩川明日美／新居夏希／高橋芽生／中垣愛来／奈良井柚香／野口愛咲美／原口碧音／三好凛花／山下悠馬／吉井野乃佳／吉村芹南",
+      "企画・演出：村上宏一郎",
+      "※出演者は追加予定（11月15日確定予定）",
     ],
     links: [
       { label: "公演詳細・チケット", url: "https://forgoodmusical.com/eventmusical.html" },
