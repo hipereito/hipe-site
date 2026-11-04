@@ -31,7 +31,6 @@ const SHOWS = [
     ],
     reserve: [
       { label: "ご予約（当日精算）", url: "https://shibai-engine.net/prism/webform.php?o=u0i8tvfq" },
-      { label: "ご予約（事前精算・整理番号付き）", url: "https://forms.gle/aYyfB5ackzDuvp5E8" },
     ],
     image: "assets/notebook-front.jpg", imageWide: true,
     links: [
