@@ -23,15 +23,6 @@ const SHOWS = [
     ],
     venue: "扇町ミュージアムキューブ CUBE01",
     address: "大阪市北区南扇町6-26",
-    access: "大阪メトロ堺筋線「扇町」駅5番出口 徒歩3分／JR環状線「天満」駅 徒歩7分",
-    price: [
-      "一般 前売4,000円（整理番号付）／当日4,500円",
-      "U18 2,000円（前売・当日共通／要年齢証明）",
-      "全自由席・整理番号順入場／未就学児入場不可",
-    ],
-    reserve: [
-      { label: "ご予約（当日精算）", url: "https://shibai-engine.net/prism/webform.php?o=u0i8tvfq" },
-    ],
     credits: [
       "出演：いいむろなおき／田中啓介／三浦求／谷啓吾／羽田兎桃／川島由衣／さゆ～る／ヒペ／近澤ゆうき／小松阿弥",
       "作・演出・振付：いいむろなおき",
@@ -40,7 +31,6 @@ const SHOWS = [
     image: "assets/notebook-front.jpg", imageWide: true,
     links: [
       { label: "公演詳細", url: "https://mime1166.com/stage/2026-11-13-15-notebook-omc/" },
-      { label: "会場アクセス（Googleマップ）", url: "https://www.google.com/maps/search/?api=1&query=%E6%89%87%E7%94%BA%E3%83%9F%E3%83%A5%E3%83%BC%E3%82%B8%E3%82%A2%E3%83%A0%E3%82%AD%E3%83%A5%E3%83%BC%E3%83%96%20%E5%A4%A7%E9%98%AA%E5%B8%82%E5%8C%97%E5%8C%BA%E5%8D%97%E6%89%87%E7%94%BA6-26" },
       { label: "チラシ裏面（詳細）", url: "assets/notebook-back.jpg" },
     ],
   },
@@ -80,8 +70,18 @@ const SHOWS = [
   {
     start: "2026-12-18", end: "2026-12-20",
     dateLabel: "2026.12.18（金）〜20（日）",
-    area: "大阪",
-    tba: true,
+    title: "HAPPY SNOW GLOBE 〜幸せのスノードーム〜",
+    subtitle: "L.U.D.O. プロデュースのクリスマスショー",
+    lead: "毎年好評のクリスマスショーが、新キャストを迎えてパワーアップ。今年は全公演で異なるパフォーマンスをお届けします。ヒペは3日間すべてに出演します。",
+    tags: ["クリスマス", "大阪・難波"],
+    venue: "Bar Theatre LUDO",
+    note: "公演詳細・チケット情報は後日公開",
+    credits: [
+      "Produced by L.U.D.O.　Directed by YuiYui",
+    ],
+    links: [
+      { label: "公演Instagram", url: "https://www.instagram.com/happy_snow_globe/" },
+    ],
   },
   {
     start: "2027-02-11", end: "2027-02-11",
