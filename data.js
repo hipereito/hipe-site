@@ -88,7 +88,7 @@ const SHOWS = [
     start: "2027-02-06", end: "2027-02-07",
     dateLabel: "2027.2.6（土）・7（日）",
     title: "建築と舞台芸術",
-    subtitle: "ニュー遊び場の創造 vol.9　いいむろなおきマイムカンパニー出演",
+    subtitle: "ニュー遊び場の創造　いいむろなおきマイムカンパニー出演",
     lead: "建築家ユニットdot architectsの建築的思考をもとに設計された舞台装置を使い、複数の団体が創作・上演する企画です。いいむろなおきマイムカンパニーはAプログラムに出演します。",
     tags: ["マイム", "神戸"],
     schedule: [
@@ -110,10 +110,11 @@ const SHOWS = [
       "舞台監督：綿中駿介　照明：幸野英哲（PAC West Inc.）　音響：和田真也　記録撮影：岩本順平",
     ],
     reserve: [
-      { label: "予約フォーム（11/21 12:00受付開始）", url: "https://s-ah.corich.co/s-ah-202702/common?elu=101" },
+      { label: "ご予約はこちら（CoRichチケット！）", url: "https://s-ah.corich.co/s-ah-202702/common?elu=101" },
     ],
     links: [
       { label: "公演詳細", url: "https://mime1166.com/stage/2027-02-06-07-new-asobiba09/" },
+      { label: "会場の公演ページ（新開地アートひろば）", url: "https://s-ah.jp/events/17881/" },
     ],
   },
   {
