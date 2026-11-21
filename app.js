@@ -60,7 +60,7 @@
       ...(s.reserve || []).map((l) => `<a class="btn primary" href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.label)}</a>`),
       ...(s.links || []).map((l) => `<a class="btn" href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.label)} ↗</a>`),
     ].join("");
-    return `<article class="show${s.image ? " has-image" : ""}${s.imageWide ? " wide" : ""}">
+    return `<article${s.id ? ` id="${esc(s.id)}"` : ""} class="show${s.image ? " has-image" : ""}${s.imageWide ? " wide" : ""}">
       <div class="body">
         <p class="date">${esc(s.dateLabel)}${badge}</p>
         <h3>${esc(s.title)}</h3>
@@ -103,6 +103,17 @@
       .join("") || '<p class="empty">出演歴はまだありません。</p>';
     const cnt = document.getElementById("history-count");
     if (cnt) cnt.textContent = past.length;
+  }
+
+  /* ---------- #id 付きリンク（例：schedule.html#kenchiku）へスクロール ----------
+     カードはJSで描画するため、描画後にハッシュの位置へ移動する */
+  if (location.hash.length > 1) {
+    const target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target) {
+      const go = () => target.scrollIntoView({ behavior: "instant" });
+      go();
+      window.addEventListener("load", go); // 画像の読み込みでずれるのを補正
+    }
   }
 
   /* ---------- SNSリンクページ ---------- */

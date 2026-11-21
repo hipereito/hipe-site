@@ -84,6 +84,7 @@ main{padding-bottom:40px}
 
 /* ---------- show card (upcoming) ---------- */
 .shows{display:grid;gap:20px}
+.show[id]{scroll-margin-top:90px} /* 固定ヘッダーに隠れないように */
 .show{
   background:var(--bg-2);border:1px solid var(--line);
   display:grid;grid-template-columns:1fr;overflow:hidden;

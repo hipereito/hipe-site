@@ -84,6 +84,7 @@ const SHOWS = [
     ],
   },
   {
+    id: "kenchiku",
     start: "2027-02-06", end: "2027-02-07",
     dateLabel: "2027.2.6（土）・7（日）",
     title: "建築と舞台芸術",
