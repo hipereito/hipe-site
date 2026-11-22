@@ -97,6 +97,7 @@ const SHOWS = [
       "開演45分前受付開始・30分前開場／自由席（当日受付順に入場整理券配布）／上演時間 各回100分予定",
     ],
     venue: "新開地アートひろば 2F・ホール",
+    image: "assets/kenchiku-front.jpg", imageWide: true,
     address: "神戸市兵庫区新開地5丁目3番14号",
     price: [
       "大人 前売3,500円／当日4,000円",
@@ -115,6 +116,7 @@ const SHOWS = [
     links: [
       { label: "公演詳細", url: "https://mime1166.com/stage/2027-02-06-07-new-asobiba09/" },
       { label: "会場の公演ページ（新開地アートひろば）", url: "https://s-ah.jp/events/17881/" },
+      { label: "チラシ裏面（ワークショップ・アクセス）", url: "assets/kenchiku-back.jpg" },
     ],
   },
   {
