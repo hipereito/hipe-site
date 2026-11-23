@@ -58,7 +58,7 @@ const SHOWS = [
       "MUSIC：ベートーヴェン「月光ソナタ」、ドビュッシー「月の光」、サン＝サーンス「動物の謝肉祭」、ジョプリン「エンターテイナー」ほか",
     ],
     reserve: [
-      { label: "第一夜 11/22 を予約", url: "https://docs.google.com/forms/d/e/1FAIpQLSeaBsCWq4ZJcIt2g7NsgGeKhA6G28L-Ob1NYWxB6y5GQi8_rg/viewform" },
+      { label: "第一夜 11/22 を予約", until: "2026-11-22", url: "https://docs.google.com/forms/d/e/1FAIpQLSeaBsCWq4ZJcIt2g7NsgGeKhA6G28L-Ob1NYWxB6y5GQi8_rg/viewform" },
       { label: "第二夜 12/6 を予約", url: "https://forms.gle/vunEJWA7fmFtAqMM7" },
     ],
     links: [

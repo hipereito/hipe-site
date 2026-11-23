@@ -57,7 +57,10 @@
     const row = (label, val) => (val && (!Array.isArray(val) || val.length) ? `<dt>${label}</dt><dd>${[].concat(val).map((v) => `<span>${esc(v)}</span>`).join("")}</dd>` : "");
     const venue = s.venue ? `<dt>会場</dt><dd><span>${esc(s.venue)}</span>${s.address ? `<span class="muted">${esc(s.address)}</span>` : ""}${s.access ? `<span class="muted">${esc(s.access)}</span>` : ""}</dd>` : "";
     const btns = [
-      ...(s.reserve || []).map((l) => `<a class="btn primary" href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.label)}</a>`),
+      ...(s.reserve || []).map((l) =>
+        l.until && d(l.until) < today
+          ? `<span class="btn primary disabled" aria-disabled="true">${esc(l.label)}（受付終了）</span>`
+          : `<a class="btn primary" href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.label)}</a>`),
       ...(s.links || []).map((l) => `<a class="btn" href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.label)} ↗</a>`),
     ].join("");
     return `<article${s.id ? ` id="${esc(s.id)}"` : ""} class="show${s.image ? " has-image" : ""}${s.imageWide ? " wide" : ""}">

@@ -115,6 +115,7 @@ dl.info .muted{color:var(--ink-2);font-size:13px}
 .btn:hover{border-color:var(--ink)}
 .btn.primary{background:var(--red);border-color:var(--red);color:#fff}
 .btn.primary:hover{filter:brightness(1.1)}
+.btn.disabled,.btn.primary.disabled{background:var(--bg-2);border-color:var(--line);color:var(--ink-3);cursor:not-allowed;pointer-events:none;filter:none}
 .show .visual{border-left:1px solid var(--line);background:#000}
 .show .visual img{display:block;width:100%;height:auto}
 .show.has-image.wide{grid-template-columns:1fr}
