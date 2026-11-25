@@ -73,7 +73,7 @@ const SHOWS = [
     dateLabel: "2026.12.18（金）〜20（日）",
     title: "HAPPY SNOW GLOBE 〜幸せのスノードーム〜",
     subtitle: "L.U.D.O. プロデュースのクリスマスショー",
-    lead: "人間に忘れられたクリスマスのおもちゃたちが暮らす、不思議なおもちゃ箱の世界。そこで開かれる特別なクリスマスパーティーを、笑いと感動のストーリーと、ダンス・歌・マイム・バレエ・バトンなど多彩なパフォーマンスで描きます。ヒペは3日間すべてに出演します。",
+    lead: "人間に忘れられたクリスマスのおもちゃたちが暮らす、不思議なおもちゃ箱の世界。そこで開かれる特別なクリスマスパーティーを、笑いと感動のストーリーと、ダンス・歌・マイム・バレエ・バトンなど多彩なパフォーマンスで描きます。ヒペは「謎のお猿」役で3日間すべてに出演します。",
     tags: ["クリスマス", "大阪・心斎橋"],
     schedule: [
       "12月18日（金）19:30開演（19:00開場）",
@@ -91,12 +91,18 @@ const SHOWS = [
     ticketStatus: "チケット発売中",
     note: "全席自由／撮影禁止／面会はVIPのみ／購入後のキャンセル・変更・払い戻し不可",
     credits: [
+      "ヒペ：謎のお猿 役（12/18・19・20 全日出演）",
+      "日によって出演キャストが異なります（各日のキャスト表をご覧ください）",
       "Produced by L.U.D.O.　Directed by YuiYui",
     ],
+    image: "assets/hsg-flyer.jpg",
     links: [
       { label: "チケット購入（LUDOオンラインストア）", url: "https://theatreludo.square.site/" },
       { label: "公演詳細", url: "https://ludo.jp/2026/11/happy-snow-globe-2026/" },
       { label: "会場アクセス", url: "https://ludo.jp/access/" },
+      { label: "キャスト表 12/18", url: "assets/hsg-cast-1218.jpg" },
+      { label: "キャスト表 12/19", url: "assets/hsg-cast-1219.jpg" },
+      { label: "キャスト表 12/20", url: "assets/hsg-cast-1220.jpg" },
       { label: "公演Instagram", url: "https://www.instagram.com/happy_snow_globe/" },
     ],
   },
