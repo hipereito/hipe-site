@@ -263,6 +263,6 @@ const GALLERY = [
   { src: "assets/gallery/g03.jpg", thumb: "assets/gallery/g03-s.jpg", w: 1800, h: 1197, caption: "" },
   { src: "assets/gallery/g06.jpg", thumb: "assets/gallery/g06-s.jpg", w: 1800, h: 1198, caption: "" },
   { src: "assets/gallery/g07.jpg", thumb: "assets/gallery/g07-s.jpg", w: 750,  h: 500,  caption: "" },
-  { src: "assets/gallery/g08.jpg", thumb: "assets/gallery/g08-s.jpg", w: 960,  h: 640,  caption: "BATTLE OF THE YEAR ／ Event: adhip ／ Photo: Takeshi Murakami" },
-  { src: "assets/gallery/g09.jpg", thumb: "assets/gallery/g09-s.jpg", w: 960,  h: 640,  caption: "BATTLE OF THE YEAR ／ Event: adhip ／ Photo: Takeshi Murakami" },
+  { src: "assets/gallery/g08.jpg", thumb: "assets/gallery/g08-s.jpg", w: 960,  h: 640,  caption: "BATTLE OF THE YEAR ／ Event: ADHIP ／ Photo: Takeshi Murakami" },
+  { src: "assets/gallery/g09.jpg", thumb: "assets/gallery/g09-s.jpg", w: 960,  h: 640,  caption: "BATTLE OF THE YEAR ／ Event: ADHIP ／ Photo: Takeshi Murakami" },
 ];
