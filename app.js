@@ -97,7 +97,9 @@
   /* ---------- 出演予定の一覧（ひと目で見る用） ---------- */
   const glanceEl = document.getElementById("glance");
   if (glanceEl) {
-    const onSchedulePage = page === "schedule";
+    // 同じページに全公演のカードがあれば、ページ内で移動する（トップ・出演予定ページ）
+    const upHere = document.getElementById("upcoming");
+    const onSchedulePage = !!upHere && !Number(upHere.dataset.limit || 0);
     const W = ["日", "月", "火", "水", "木", "金", "土"];
     const rows = upcoming.filter((s) => !s.tba).map((s) => {
       const st = nextDate(s);
