@@ -36,6 +36,7 @@ const SHOWS = [
   },
   {
     start: "2026-11-22", end: "2026-12-06",
+    dates: ["2026-11-22", "2026-12-06"],
     dateLabel: "2026.11.22（日）・12.06（日）",
     title: "眠りの森のルナ",
     subtitle: "NAD企画公演　クラシック音楽 × エアリアル × パントマイム × 演劇",
@@ -75,7 +76,8 @@ const SHOWS = [
     lead: "毎年好評のクリスマスショーが、新キャストを迎えてパワーアップ。今年は全公演で異なるパフォーマンスをお届けします。ヒペは3日間すべてに出演します。",
     tags: ["クリスマス", "大阪・難波"],
     venue: "Bar Theatre LUDO",
-    note: "公演詳細・チケット情報は後日公開",
+    ticketStatus: "チケット発売中",
+    note: "チケット発売中。公演詳細・ご購入は公演Instagramをご確認ください",
     credits: [
       "Produced by L.U.D.O.　Directed by YuiYui",
     ],

@@ -15,6 +15,14 @@
   const all = (typeof SHOWS !== "undefined" ? SHOWS : []).slice();
   const upcoming = all.filter((s) => d(s.end || s.start) >= today).sort((a, b) => d(a.start) - d(b.start));
   const past = all.filter((s) => d(s.end || s.start) < today && !s.tba).sort((a, b) => d(b.start) - d(a.start));
+  // id がない公演には日付から自動で付ける（一覧からカードへ飛ぶため）
+  all.forEach((s) => { if (!s.id && s.start) s.id = "show-" + s.start; });
+  // 飛び飛びの公演日（dates）がある場合は、今日以降で一番近い日を「次の公演日」とする
+  const nextDate = (s) => (s.dates || []).map(d).find((x) => x >= today) || d(s.start);
+  const playingToday = (s) => s.dates
+    ? s.dates.some((x) => d(x).getTime() === today.getTime())
+    : d(s.start) <= today && d(s.end || s.start) >= today;
+  const openReserves = (s) => (s.reserve || []).filter((l) => !(l.until && d(l.until) < today));
 
   /* ---------- 共通ヘッダー・フッター ---------- */
   const page = document.body.dataset.page;
@@ -52,7 +60,7 @@
         <span class="area">${esc(s.area || "")}</span>
         <p>情報公開までお待ちください</p></div></article>`;
     }
-    const isNow = d(s.start) <= today && d(s.end || s.start) >= today;
+    const isNow = playingToday(s);
     const badge = isNow ? '<span class="status">公演中</span>' : i === 0 ? '<span class="status next">NEXT</span>' : "";
     const row = (label, val) => (val && (!Array.isArray(val) || val.length) ? `<dt>${label}</dt><dd>${[].concat(val).map((v) => `<span>${esc(v)}</span>`).join("")}</dd>` : "");
     const venue = s.venue ? `<dt>会場</dt><dd><span>${esc(s.venue)}</span>${s.address ? `<span class="muted">${esc(s.address)}</span>` : ""}${s.access ? `<span class="muted">${esc(s.access)}</span>` : ""}</dd>` : "";
@@ -84,6 +92,39 @@
     let list = upcoming;
     if (limit) list = upcoming.filter((s) => !s.tba).slice(0, limit);
     upEl.innerHTML = list.length ? list.map(showCard).join("") : '<p class="empty">現在公開中の出演予定はありません。</p>';
+  }
+
+  /* ---------- 出演予定の一覧（ひと目で見る用） ---------- */
+  const glanceEl = document.getElementById("glance");
+  if (glanceEl) {
+    const onSchedulePage = page === "schedule";
+    const W = ["日", "月", "火", "水", "木", "金", "土"];
+    const rows = upcoming.filter((s) => !s.tba).map((s) => {
+      const st = nextDate(s);
+      const isNow = playingToday(s);
+      const open = openReserves(s);
+      const chip = isNow
+        ? '<span class="chip now">公演中</span>'
+        : s.ticketStatus
+        ? `<span class="chip${open.length ? " on" : ""}">${esc(s.ticketStatus)}</span>`
+        : open.length
+        ? '<span class="chip on">予約受付中</span>'
+        : "";
+      const href = (onSchedulePage ? "" : "schedule.html") + "#" + encodeURIComponent(s.id);
+      const when = esc((s.dateLabel || "").replace(/^\d{4}\./, ""));
+      const where = [s.venue, s.glanceArea].filter(Boolean).map(esc).join("　");
+      const cta = open.length
+        ? `<a class="g-cta" href="${esc(open[0].url)}" target="_blank" rel="noopener">予約する</a>`
+        : "";
+      return `<li>
+        <a class="g-main" href="${href}">
+          <span class="g-date"><small>${st.getFullYear()}</small><b>${st.getMonth() + 1}.${String(st.getDate()).padStart(2, "0")}</b><small>${W[st.getDay()]}</small></span>
+          <span class="g-body"><span class="g-title">${esc(s.title)}</span><span class="g-meta">${when}${where ? `<span class="g-sep">／</span>${where}` : ""}</span></span>
+          <span class="g-side">${chip}<span class="g-arrow">詳細 →</span></span>
+        </a>${cta}
+      </li>`;
+    });
+    glanceEl.innerHTML = rows.length ? `<ol class="glance">${rows.join("")}</ol>` : '<p class="empty">現在公開中の出演予定はありません。</p>';
   }
 
   /* ---------- 過去の出演歴 ---------- */
