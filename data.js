@@ -144,7 +144,7 @@ const SHOWS = [
   },
   {
     start: "2027-02-11", end: "2027-02-11",
-    dateLabel: "2027.2.11（水・祝）",
+    dateLabel: "2027.2.11（木・祝）",
     title: "ミュージカルコンサート GREEN",
     subtitle: "劇団FOR GOOD 第10回公演（FOR GOOD 10th CONCERT）",
     lead: "歌とダンスのオムニバスライブ、ミュージカルコンサートシリーズ第4弾。テーマは「緑」。ヒペはゲストパフォーマーとして出演します。",
