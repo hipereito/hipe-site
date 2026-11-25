@@ -253,16 +253,36 @@ const SOCIALS = [
 ];
 
 /* ---------- ギャラリー（トップの「写真」欄） ----------
-   src = 大きい画像（タップで拡大表示）、thumb = 一覧用の小さい画像
-   caption は任意（公演名・撮影者クレジットなど。空なら表示しない） */
+   src     … 大きい画像（一覧用の小さい画像は「-s」付きのファイルを自動で使う）
+   cat     … stage（舞台）／ portrait（ポートレート）／ off（オフショット）
+   size    … big（大きい正方形）／ wide（横長）／ tall（縦長）／ small（小さい正方形）
+             並べたときに隙間が出ないよう、全体のマス数が4の倍数になるようにする
+             （big=4マス、wide・tall=2マス、small=1マス）
+   pos     … 一覧で切り抜くときの中心（"左右% 上下%"）。顔が切れる場合に調整
+   caption … 任意（公演名・撮影クレジットなど） */
+const GALLERY_CATS = [
+  ["all", "すべて"],
+  ["stage", "舞台"],
+  ["portrait", "ポートレート"],
+  ["off", "オフショット"],
+];
 const GALLERY = [
-  { src: "assets/gallery/g01.jpg", thumb: "assets/gallery/g01-s.jpg", w: 1800, h: 1200, caption: "" },
-  { src: "assets/gallery/g04.jpg", thumb: "assets/gallery/g04-s.jpg", w: 966,  h: 1800, caption: "" },
-  { src: "assets/gallery/g05.jpg", thumb: "assets/gallery/g05-s.jpg", w: 1230, h: 1800, caption: "" },
-  { src: "assets/gallery/g02.jpg", thumb: "assets/gallery/g02-s.jpg", w: 1800, h: 1200, caption: "" },
-  { src: "assets/gallery/g03.jpg", thumb: "assets/gallery/g03-s.jpg", w: 1800, h: 1197, caption: "" },
-  { src: "assets/gallery/g06.jpg", thumb: "assets/gallery/g06-s.jpg", w: 1800, h: 1198, caption: "" },
-  { src: "assets/gallery/g07.jpg", thumb: "assets/gallery/g07-s.jpg", w: 750,  h: 500,  caption: "" },
-  { src: "assets/gallery/g08.jpg", thumb: "assets/gallery/g08-s.jpg", w: 960,  h: 640,  caption: "BATTLE OF THE YEAR ／ Event: ADHIP ／ Photo: Takeshi Murakami" },
-  { src: "assets/gallery/g09.jpg", thumb: "assets/gallery/g09-s.jpg", w: 960,  h: 640,  caption: "BATTLE OF THE YEAR ／ Event: ADHIP ／ Photo: Takeshi Murakami" },
+  { src: "assets/gallery/g14.jpg", cat: "portrait", size: "big", pos: "50% 35%", caption: "" },
+  { src: "assets/gallery/g04.jpg", cat: "portrait", size: "tall", pos: "50% 50%", caption: "" },
+  { src: "assets/gallery/g13.jpg", cat: "portrait", size: "tall", pos: "62% 40%", caption: "" },
+  { src: "assets/gallery/g01.jpg", cat: "stage", size: "wide", pos: "50% 30%", caption: "" },
+  { src: "assets/gallery/g15.jpg", cat: "portrait", size: "wide", pos: "40% 50%", caption: "" },
+  { src: "assets/gallery/g10.jpg", cat: "portrait", size: "big", pos: "55% 30%", caption: "" },
+  { src: "assets/gallery/g18.jpg", cat: "stage", size: "wide", pos: "48% 45%", caption: "" },
+  { src: "assets/gallery/g08.jpg", cat: "stage", size: "wide", pos: "50% 50%", caption: "BATTLE OF THE YEAR ／ Event: ADHIP ／ Photo: Takeshi Murakami" },
+  { src: "assets/gallery/g02.jpg", cat: "portrait", size: "wide", pos: "50% 35%", caption: "" },
+  { src: "assets/gallery/g05.jpg", cat: "stage", size: "tall", pos: "68% 70%", caption: "" },
+  { src: "assets/gallery/g07.jpg", cat: "stage", size: "small", pos: "55% 40%", caption: "" },
+  { src: "assets/gallery/g12.jpg", cat: "off", size: "wide", pos: "60% 40%", caption: "" },
+  { src: "assets/gallery/g03.jpg", cat: "stage", size: "small", pos: "58% 35%", caption: "" },
+  { src: "assets/gallery/g06.jpg", cat: "stage", size: "wide", pos: "50% 40%", caption: "" },
+  { src: "assets/gallery/g16.jpg", cat: "portrait", size: "big", pos: "52% 50%", caption: "" },
+  { src: "assets/gallery/g09.jpg", cat: "stage", size: "wide", pos: "50% 55%", caption: "BATTLE OF THE YEAR ／ Event: ADHIP ／ Photo: Takeshi Murakami" },
+  { src: "assets/gallery/g17.jpg", cat: "off", size: "wide", pos: "55% 40%", caption: "" },
+  { src: "assets/gallery/g11.jpg", cat: "off", size: "wide", pos: "62% 50%", caption: "" },
 ];

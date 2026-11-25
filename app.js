@@ -29,6 +29,7 @@
   const navItems = [
     ["index.html", "トップ", "home"],
     ["schedule.html", "出演予定", "schedule"],
+    ["index.html#photos", "写真", "photos"],
     ["history.html", "過去の出演歴", "history"],
     ["links.html", "SNS", "links"],
   ];
@@ -167,30 +168,52 @@
     if (cnt) cnt.textContent = past.length;
   }
 
-  /* ---------- ギャラリー（タップで拡大・左右で送る） ---------- */
+  /* ---------- ギャラリー（大小のタイル・絞り込み・タップで拡大） ---------- */
   const galEl = document.getElementById("gallery");
   const G = typeof GALLERY !== "undefined" ? GALLERY : [];
   if (galEl && G.length) {
-    galEl.innerHTML = G.map((g, i) =>
-      `<a class="g-item" href="${esc(g.src)}" data-i="${i}"><img src="${esc(g.thumb || g.src)}" alt="${esc(g.caption || "ヒペ 舞台写真")}" width="${g.w || ""}" height="${g.h || ""}" loading="lazy">${g.caption ? `<span class="g-cap">${esc(g.caption)}</span>` : ""}</a>`
-    ).join("");
+    const thumb = (src) => src.replace(/\.jpg$/, "-s.jpg");
+    const cats = (typeof GALLERY_CATS !== "undefined" ? GALLERY_CATS : []).filter(([k]) => k === "all" || G.some((g) => g.cat === k));
+    const tabs = cats.length > 2
+      ? `<div class="g-tabs" role="tablist">${cats.map(([k, label], n) =>
+          `<button type="button" role="tab" data-cat="${k}" aria-selected="${n === 0}">${label}</button>`).join("")}</div>`
+      : "";
+    galEl.innerHTML = tabs + `<div class="g-grid">${G.map((g, i) =>
+      `<a class="g-item ${esc(g.size || "small")}" href="${esc(g.src)}" data-i="${i}" data-cat="${esc(g.cat || "")}">
+        <img src="${esc(thumb(g.src))}" alt="${esc(g.caption || "ヒペ 写真")}" loading="lazy" style="object-position:${esc(g.pos || "50% 50%")}">
+        ${g.caption ? `<span class="g-cap">${esc(g.caption)}</span>` : ""}
+      </a>`).join("")}</div>`;
+    const items = [...galEl.querySelectorAll(".g-item")];
+    let visible = G.map((_, i) => i);
+    galEl.querySelectorAll(".g-tabs button").forEach((b) => b.addEventListener("click", () => {
+      const c = b.dataset.cat;
+      galEl.querySelectorAll(".g-tabs button").forEach((x) => x.setAttribute("aria-selected", x === b));
+      galEl.classList.toggle("is-filtered", c !== "all");
+      visible = [];
+      items.forEach((el, i) => { const on = c === "all" || el.dataset.cat === c; el.hidden = !on; if (on) visible.push(i); });
+    }));
+
     const box = document.createElement("div");
     box.className = "lightbox"; box.hidden = true;
     box.innerHTML = `<button class="lb-close" aria-label="閉じる">×</button><button class="lb-prev" aria-label="前の写真">‹</button><figure><img alt=""><figcaption></figcaption></figure><button class="lb-next" aria-label="次の写真">›</button>`;
     document.body.appendChild(box);
     const img = box.querySelector("img"), cap = box.querySelector("figcaption");
-    let cur = 0;
-    const show = (i) => { cur = (i + G.length) % G.length; img.src = G[cur].src; img.alt = G[cur].caption || "ヒペ 舞台写真"; cap.textContent = G[cur].caption || `${cur + 1} / ${G.length}`; };
-    const open = (i) => { show(i); box.hidden = false; document.body.style.overflow = "hidden"; };
+    let pos = 0;
+    const show = (p) => {
+      pos = (p + visible.length) % visible.length; const g = G[visible[pos]];
+      img.src = g.src; img.alt = g.caption || "ヒペ 写真";
+      cap.textContent = (g.caption ? g.caption + "　" : "") + `${pos + 1} / ${visible.length}`;
+    };
+    const open = (i) => { show(Math.max(0, visible.indexOf(i))); box.hidden = false; document.body.style.overflow = "hidden"; };
     const close = () => { box.hidden = true; document.body.style.overflow = ""; };
     galEl.addEventListener("click", (e) => { const a = e.target.closest(".g-item"); if (!a) return; e.preventDefault(); open(Number(a.dataset.i)); });
-    box.querySelector(".lb-prev").onclick = (e) => { e.stopPropagation(); show(cur - 1); };
-    box.querySelector(".lb-next").onclick = (e) => { e.stopPropagation(); show(cur + 1); };
+    box.querySelector(".lb-prev").onclick = (e) => { e.stopPropagation(); show(pos - 1); };
+    box.querySelector(".lb-next").onclick = (e) => { e.stopPropagation(); show(pos + 1); };
     box.addEventListener("click", (e) => { if (e.target === box || e.target.classList.contains("lb-close")) close(); });
-    document.addEventListener("keydown", (e) => { if (box.hidden) return; if (e.key === "Escape") close(); if (e.key === "ArrowLeft") show(cur - 1); if (e.key === "ArrowRight") show(cur + 1); });
+    document.addEventListener("keydown", (e) => { if (box.hidden) return; if (e.key === "Escape") close(); if (e.key === "ArrowLeft") show(pos - 1); if (e.key === "ArrowRight") show(pos + 1); });
     let sx = null;
     box.addEventListener("touchstart", (e) => { sx = e.touches[0].clientX; }, { passive: true });
-    box.addEventListener("touchend", (e) => { if (sx === null) return; const dx = e.changedTouches[0].clientX - sx; if (Math.abs(dx) > 50) show(cur + (dx < 0 ? 1 : -1)); sx = null; });
+    box.addEventListener("touchend", (e) => { if (sx === null) return; const dx = e.changedTouches[0].clientX - sx; if (Math.abs(dx) > 50) show(pos + (dx < 0 ? 1 : -1)); sx = null; });
   }
 
   /* ---------- #id 付きリンク（例：schedule.html#kenchiku）へスクロール ----------
