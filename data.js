@@ -283,6 +283,7 @@ const GALLERY = [
   { src: "assets/gallery/g06.jpg", cat: "stage", size: "wide", pos: "50% 40%", caption: "" },
   { src: "assets/gallery/g16.jpg", cat: "portrait", size: "big", pos: "52% 50%", caption: "" },
   { src: "assets/gallery/g09.jpg", cat: "stage", size: "wide", pos: "50% 55%", caption: "BATTLE OF THE YEAR ／ Event: ADHIP ／ Photo: Takeshi Murakami" },
+  { src: "assets/gallery/g19.jpg", cat: "stage", size: "big", pos: "50% 40%", caption: "いいむろなおきマイムカンパニー公演『notebook』／ photo by 堀川高志（kutowans studio）" },
   { src: "assets/gallery/g17.jpg", cat: "off", size: "wide", pos: "55% 40%", caption: "" },
   { src: "assets/gallery/g11.jpg", cat: "off", size: "wide", pos: "62% 50%", caption: "" },
 ];
