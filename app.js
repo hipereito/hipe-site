@@ -104,6 +104,23 @@
     const rows = upcoming.filter((s) => !s.tba).map((s) => {
       const st = nextDate(s);
       const isNow = playingToday(s);
+      // 日付欄：複数日は日程をまとめて表示（飛び飛び＝「・」、連続＝「〜」）
+      const md = (x) => `${x.getMonth() + 1}.${String(x.getDate()).padStart(2, "0")}`;
+      let dMain, dWd, multi = false;
+      if (s.dates && s.dates.length > 1) {
+        const ds = s.dates.map(d);
+        dMain = ds.map((x) => `<span class="${x < today ? "past" : ""}">${md(x)}</span>`).join("<i>・</i>");
+        dWd = ds.map((x) => W[x.getDay()]).join("・");
+        multi = true;
+      } else if (s.end && s.end !== s.start) {
+        const a = d(s.start), b = d(s.end);
+        dMain = `${md(a)}<i>〜</i>${a.getMonth() === b.getMonth() ? b.getDate() : md(b)}`;
+        dWd = `${W[a.getDay()]}〜${W[b.getDay()]}`;
+        multi = true;
+      } else {
+        dMain = md(st);
+        dWd = W[st.getDay()];
+      }
       const open = openReserves(s);
       const chip = isNow
         ? '<span class="chip now">公演中</span>'
@@ -113,15 +130,14 @@
         ? '<span class="chip on">予約受付中</span>'
         : "";
       const href = (onSchedulePage ? "" : "schedule.html") + "#" + encodeURIComponent(s.id);
-      const when = esc((s.dateLabel || "").replace(/^\d{4}\./, ""));
       const where = [s.venue, s.glanceArea].filter(Boolean).map(esc).join("　");
       const cta = open.length
         ? `<a class="g-cta" href="${esc(open[0].url)}" target="_blank" rel="noopener">予約する</a>`
         : "";
       return `<li>
         <a class="g-main" href="${href}">
-          <span class="g-date"><small>${st.getFullYear()}</small><b>${st.getMonth() + 1}.${String(st.getDate()).padStart(2, "0")}</b><small>${W[st.getDay()]}</small></span>
-          <span class="g-body"><span class="g-title">${esc(s.title)}</span><span class="g-meta">${when}${where ? `<span class="g-sep">／</span>${where}` : ""}</span></span>
+          <span class="g-date${multi ? " multi" : ""}"><small>${d(s.start).getFullYear()}</small><b>${dMain}</b><small>${dWd}</small></span>
+          <span class="g-body"><span class="g-title">${esc(s.title)}</span>${where ? `<span class="g-meta">${where}</span>` : ""}</span>
           <span class="g-side">${chip}<span class="g-arrow">詳細 →</span></span>
         </a>${cta}
       </li>`;
