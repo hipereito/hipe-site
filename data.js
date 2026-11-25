@@ -251,3 +251,18 @@ const SOCIALS = [
   // { name: "YouTube", handle: "@xxxx", url: "https://www.youtube.com/@xxxx", icon: "youtube", note: "パフォーマンス映像" },
   // { name: "TikTok", handle: "@xxxx", url: "https://www.tiktok.com/@xxxx", icon: "tiktok", note: "" },
 ];
+
+/* ---------- ギャラリー（トップの「写真」欄） ----------
+   src = 大きい画像（タップで拡大表示）、thumb = 一覧用の小さい画像
+   caption は任意（公演名・撮影者クレジットなど。空なら表示しない） */
+const GALLERY = [
+  { src: "assets/gallery/g01.jpg", thumb: "assets/gallery/g01-s.jpg", w: 1800, h: 1200, caption: "" },
+  { src: "assets/gallery/g04.jpg", thumb: "assets/gallery/g04-s.jpg", w: 966,  h: 1800, caption: "" },
+  { src: "assets/gallery/g05.jpg", thumb: "assets/gallery/g05-s.jpg", w: 1230, h: 1800, caption: "" },
+  { src: "assets/gallery/g02.jpg", thumb: "assets/gallery/g02-s.jpg", w: 1800, h: 1200, caption: "" },
+  { src: "assets/gallery/g03.jpg", thumb: "assets/gallery/g03-s.jpg", w: 1800, h: 1197, caption: "" },
+  { src: "assets/gallery/g06.jpg", thumb: "assets/gallery/g06-s.jpg", w: 1800, h: 1198, caption: "" },
+  { src: "assets/gallery/g07.jpg", thumb: "assets/gallery/g07-s.jpg", w: 750,  h: 500,  caption: "" },
+  { src: "assets/gallery/g08.jpg", thumb: "assets/gallery/g08-s.jpg", w: 960,  h: 640,  caption: "" },
+  { src: "assets/gallery/g09.jpg", thumb: "assets/gallery/g09-s.jpg", w: 960,  h: 640,  caption: "" },
+];

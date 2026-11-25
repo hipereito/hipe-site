@@ -167,6 +167,32 @@
     if (cnt) cnt.textContent = past.length;
   }
 
+  /* ---------- ギャラリー（タップで拡大・左右で送る） ---------- */
+  const galEl = document.getElementById("gallery");
+  const G = typeof GALLERY !== "undefined" ? GALLERY : [];
+  if (galEl && G.length) {
+    galEl.innerHTML = G.map((g, i) =>
+      `<a class="g-item" href="${esc(g.src)}" data-i="${i}"><img src="${esc(g.thumb || g.src)}" alt="${esc(g.caption || "ヒペ 舞台写真")}" width="${g.w || ""}" height="${g.h || ""}" loading="lazy">${g.caption ? `<span class="g-cap">${esc(g.caption)}</span>` : ""}</a>`
+    ).join("");
+    const box = document.createElement("div");
+    box.className = "lightbox"; box.hidden = true;
+    box.innerHTML = `<button class="lb-close" aria-label="閉じる">×</button><button class="lb-prev" aria-label="前の写真">‹</button><figure><img alt=""><figcaption></figcaption></figure><button class="lb-next" aria-label="次の写真">›</button>`;
+    document.body.appendChild(box);
+    const img = box.querySelector("img"), cap = box.querySelector("figcaption");
+    let cur = 0;
+    const show = (i) => { cur = (i + G.length) % G.length; img.src = G[cur].src; img.alt = G[cur].caption || "ヒペ 舞台写真"; cap.textContent = G[cur].caption || `${cur + 1} / ${G.length}`; };
+    const open = (i) => { show(i); box.hidden = false; document.body.style.overflow = "hidden"; };
+    const close = () => { box.hidden = true; document.body.style.overflow = ""; };
+    galEl.addEventListener("click", (e) => { const a = e.target.closest(".g-item"); if (!a) return; e.preventDefault(); open(Number(a.dataset.i)); });
+    box.querySelector(".lb-prev").onclick = (e) => { e.stopPropagation(); show(cur - 1); };
+    box.querySelector(".lb-next").onclick = (e) => { e.stopPropagation(); show(cur + 1); };
+    box.addEventListener("click", (e) => { if (e.target === box || e.target.classList.contains("lb-close")) close(); });
+    document.addEventListener("keydown", (e) => { if (box.hidden) return; if (e.key === "Escape") close(); if (e.key === "ArrowLeft") show(cur - 1); if (e.key === "ArrowRight") show(cur + 1); });
+    let sx = null;
+    box.addEventListener("touchstart", (e) => { sx = e.touches[0].clientX; }, { passive: true });
+    box.addEventListener("touchend", (e) => { if (sx === null) return; const dx = e.changedTouches[0].clientX - sx; if (Math.abs(dx) > 50) show(cur + (dx < 0 ? 1 : -1)); sx = null; });
+  }
+
   /* ---------- #id 付きリンク（例：schedule.html#kenchiku）へスクロール ----------
      カードはJSで描画するため、描画後にハッシュの位置へ移動する */
   if (location.hash.length > 1) {
