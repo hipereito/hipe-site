@@ -133,7 +133,7 @@
       const href = (onSchedulePage ? "" : "schedule.html") + "#" + encodeURIComponent(s.id);
       const where = [s.venue, s.glanceArea].filter(Boolean).map(esc).join("　");
       const cta = open.length
-        ? `<a class="g-cta" href="${esc(open[0].url)}" target="_blank" rel="noopener">予約する</a>`
+        ? `<a class="g-cta" href="${esc(open[0].url)}" target="_blank" rel="noopener">${esc(open[0].cta || "予約する")}</a>`
         : "";
       return `<li>
         <a class="g-main" href="${href}">

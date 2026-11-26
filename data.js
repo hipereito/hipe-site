@@ -96,8 +96,10 @@ const SHOWS = [
       "Produced by L.U.D.O.　Directed by YuiYui",
     ],
     image: "assets/hsg-flyer.jpg",
+    reserve: [
+      { label: "チケット購入（LUDOオンラインストア）", cta: "チケット購入", url: "https://theatreludo.square.site/", until: "2026-12-20" },
+    ],
     links: [
-      { label: "チケット購入（LUDOオンラインストア）", url: "https://theatreludo.square.site/" },
       { label: "公演詳細", url: "https://ludo.jp/2026/11/happy-snow-globe-2026/" },
       { label: "会場アクセス", url: "https://ludo.jp/access/" },
       { label: "キャスト表 12/18", url: "assets/hsg-cast-1218.jpg" },
