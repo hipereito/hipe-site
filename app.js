@@ -157,13 +157,13 @@
     histEl.innerHTML = Object.keys(byYear)
       .sort((a, b) => b - a)
       .map((y) => `<section class="year"><h2>${y}</h2><ol class="timeline">${byYear[y]
-        .map((s) => `<li><div class="d">${esc(s.dateLabel.replace(/^\d{4}\./, ""))}</div><div>
+        .map((s) => `<li${s.image ? ' class="has-img"' : ""}><div class="d">${esc(s.dateLabel.replace(/^\d{4}\./, ""))}</div><div>
           <h3>${esc(s.title)}</h3>
           ${s.subtitle ? `<p class="sub">${esc(s.subtitle)}</p>` : ""}
           ${s.venue ? `<p class="meta"><b>会場</b>${esc(s.venue)}</p>` : ""}
           ${s.note ? `<p class="note">${esc(s.note)}</p>` : ""}
           ${(s.links || []).map((l) => `<a class="inline" href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.label)}</a>`).join("")}
-        </div></li>`).join("")}</ol></section>`)
+        </div>${s.image ? `<a class="h-thumb${s.imageWide ? " wide" : ""}" href="${esc(s.image)}" target="_blank" rel="noopener" aria-label="${esc(s.title)} のチラシを開く"><img src="${esc(s.image)}" alt="" loading="lazy"></a>` : ""}</li>`).join("")}</ol></section>`)
       .join("") || '<p class="empty">出演歴はまだありません。</p>';
     const cnt = document.getElementById("history-count");
     if (cnt) cnt.textContent = past.length;
