@@ -176,6 +176,7 @@ const SHOWS = [
       { label: "公演詳細・チケット", url: "https://forgoodmusical.com/eventmusical.html" },
       { label: "会場アクセス", url: "https://beronica.jp/about.php" },
     ],
+    image: "assets/green-visual.jpg",
   },
 
   // ---------- 過去の出演歴 ----------
@@ -286,6 +287,7 @@ const GALLERY = [
   { src: "assets/gallery/g16.jpg", cat: "portrait", size: "big", pos: "52% 50%", caption: "" },
   { src: "assets/gallery/g09.jpg", cat: "stage", size: "wide", pos: "50% 55%", caption: "BATTLE OF THE YEAR ／ Event: ADHIP ／ Photo: Takeshi Murakami" },
   { src: "assets/gallery/g19.jpg", cat: "stage", size: "big", pos: "50% 40%", caption: "いいむろなおきマイムカンパニー公演『notebook』／ photo by 堀川高志（kutowans studio）" },
+  { src: "assets/gallery/g20.jpg", cat: "stage", size: "big", pos: "58% 40%", caption: "Photo by 潮谷 領二" },
   { src: "assets/gallery/g17.jpg", cat: "off", size: "wide", pos: "55% 40%", caption: "" },
   { src: "assets/gallery/g11.jpg", cat: "off", size: "wide", pos: "62% 50%", caption: "" },
 ];
