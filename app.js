@@ -138,6 +138,7 @@
       return `<li>
         <a class="g-main" href="${href}">
           <span class="g-date${multi ? " multi" : ""}"><small>${d(s.start).getFullYear()}</small><b>${dMain}</b><small>${dWd}</small></span>
+          ${s.image ? `<span class="g-thumb${s.imageWide ? " wide" : ""}"><img src="${esc(s.image)}" alt="" loading="lazy"></span>` : '<span class="g-thumb none"></span>'}
           <span class="g-body"><span class="g-title">${esc(s.title)}</span>${where ? `<span class="g-meta">${where}</span>` : ""}</span>
           <span class="g-side">${chip}<span class="g-arrow">詳細 →</span></span>
         </a>${cta}
