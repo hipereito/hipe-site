@@ -484,6 +484,13 @@ const SHOWS = [
     note: "主演・ロナ役",
     links: [{ label: "公演詳細", url: "https://forgoodmusical.com/tiktoklover.html" }],
   },
+  {
+    start: "2023-02-03", end: "2023-02-05",
+    dateLabel: "2023.2.3（金）〜5（日）",
+    title: "fooish -そんな僕らを愛せるか そんな彼らを愛せるか-",
+    subtitle: "N-Trance Fish FINAL COUNTDOWN STAGE 3",
+    venue: "ABCホール",
+  },
 ];
 
 /* ---------- SNS・リンク ---------- */
